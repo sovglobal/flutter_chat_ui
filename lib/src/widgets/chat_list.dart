@@ -13,6 +13,7 @@ class ChatList extends StatefulWidget {
   /// Creates a chat list widget.
   const ChatList({
     super.key,
+    this.topWidget,
     this.bottomWidget,
     required this.bubbleRtlAlignment,
     this.isLastPage,
@@ -29,6 +30,9 @@ class ChatList extends StatefulWidget {
 
   /// A custom widget at the bottom of the list.
   final Widget? bottomWidget;
+
+  /// A custom widget at the top of the list.
+  final Widget? topWidget;
 
   /// Used to set alignment of typing indicator.
   /// See [BubbleRtlAlignment].
@@ -232,6 +236,8 @@ class _ChatListState extends State<ChatList>
                 ),
               ),
             ),
+            if (widget.topWidget != null)
+              SliverToBoxAdapter(child: widget.topWidget),
           ],
         ),
       );

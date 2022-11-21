@@ -64,6 +64,7 @@ class Chat extends StatefulWidget {
     this.keyboardDismissBehavior = ScrollViewKeyboardDismissBehavior.manual,
     this.l10n = const ChatL10nEn(),
     this.listBottomWidget,
+    this.listTopWidget,
     required this.messages,
     this.nameBuilder,
     this.onAttachmentPressed,
@@ -213,6 +214,8 @@ class Chat extends StatefulWidget {
   /// See [ChatList.bottomWidget]. For a custom chat input
   /// use [customBottomWidget] instead.
   final Widget? listBottomWidget;
+
+  final Widget? listTopWidget;
 
   /// List of [types.Message] to render in the chat widget.
   final List<types.Message> messages;
@@ -432,6 +435,7 @@ class ChatState extends State<Chat> {
                                   ) =>
                                       ChatList(
                                     bottomWidget: widget.listBottomWidget,
+                                    topWidget: widget.listTopWidget,
                                     bubbleRtlAlignment:
                                         widget.bubbleRtlAlignment!,
                                     isLastPage: widget.isLastPage,
